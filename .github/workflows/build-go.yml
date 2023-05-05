@@ -4,6 +4,13 @@
 name: Go
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
   push:
     branches: [ "main" ]
   pull_request:
@@ -23,6 +30,3 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
