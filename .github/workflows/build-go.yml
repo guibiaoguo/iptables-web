@@ -52,7 +52,7 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         ls -alh
-        echo "FIRMWARE=iptables-server" >> $GITHUB_ENV
+        echo "FIRMWARE=$PWD/iptables-server" >> $GITHUB_ENV
         echo "::set-output name=status::success"
     - name: Generate release tag
       id: tag
