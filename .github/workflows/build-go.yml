@@ -44,14 +44,16 @@ jobs:
     - name: Build
       run: |
         ls -alh
-        make
-        #go build -v ./...
+        #make
+        go build -v ./...
         ls -al
+        tree
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         ls -alh
+        tree
         echo "FIRMWARE=$PWD/iptables-server" >> $GITHUB_ENV
         echo "::set-output name=status::success"
     - name: Generate release tag
