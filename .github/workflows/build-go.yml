@@ -45,7 +45,7 @@ jobs:
       run: |
         ls -alh
         #make
-        go build -v ./...
+        go build -v
         ls -al
         tree
     - name: Organize files
